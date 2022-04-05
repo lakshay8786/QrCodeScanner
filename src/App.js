@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {  useState } from 'react'
+import { QrReader } from 'react-qr-reader'
+import './Style.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+  const App = (props) => {
+    const [data, setData] = useState('No result');
+    const [show,setShow] = useState(true);
+  return(
+    <div className='container-fluid' id='cont'>
+    <div className='row' id='row'>
+      <div className='col'>
+      
+
+      <div class="card">
+  <div class="card-header">Qr Scanner</div>
+  <div class="card-body">
+  {show ?     <QrReader 
+        onResult={(result, error) => {
+          if (!!result) {
+            setData(result?.text);
+          }
+          
+          if (!!error) {
+            console.info(error);
+          }
+        }}
+        style={{ width: '10%' }}
+        /> :null}
+    
+
+
+  <button 
+  id='btn' 
+  type="button" 
+  class="btn btn-dark"
+   onClick={()=>setShow(!show)}>
+    Show
+    </button>
+<hr />
+    <p>{data}</p> 
+  </div>
+</div>
+    
+        </div>     
     </div>
-  );
+    
+    </div>
+  )
 }
+
 
 export default App;

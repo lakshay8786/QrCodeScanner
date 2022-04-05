@@ -1,0 +1,22 @@
+
+#btn{
+    background-color: darkred;
+  
+}
+ .card-body{
+     justify-content: center;
+     align-items: center;
+     background-color: rebeccapurple
+     
+ }
+ #cont{
+     justify-content: center;
+     background-color: rebeccapurple;
+     
+     padding-bottom: 784px;
+ }
+ #row{
+     background-color: rebeccapurple;
+     padding-left: 100px;
+     padding-right: 100px;
+ }
